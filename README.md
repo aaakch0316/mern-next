@@ -11,11 +11,11 @@
 - Babel 설정 (IE 11 대응)
 
 ## Script
-'''
-$ npm run dev
-'''
+```bash
+npm run dev
+```
 
-'''
-$ npm run build
-$ npm run deplay
-'''
+```bash
+npm run build
+npm run deplay
+```
