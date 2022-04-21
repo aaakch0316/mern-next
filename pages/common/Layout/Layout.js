@@ -1,5 +1,5 @@
 import style from "./Layout.module.css";
-import Nav from "../Nav/Nav";
+import Nav from "../nav/Nav";
 // import Footer from "./Footer";
 export default function Layout({ children }){
   return (

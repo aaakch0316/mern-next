@@ -6,7 +6,7 @@ export default function Nav(){
     <nav className={styles.nav}>
       <ul>
         <li className={styles.li}> <Link href='/'>메인</Link> </li>
-        <li className={styles.li}> <Link href='/basic/counter'>카운터</Link> </li>
+        <li className={styles.li}> <Link href='/counter'>카운터</Link> </li>
         <li className={styles.li}> <Link href='/basic/calc'>계산기</Link> </li>
         <li className={styles.li}> <Link href='/basic/bmi'>BMI</Link> </li>
         <li className={styles.li}> <Link href='/todo/todo'>투두리스트</Link> </li>
