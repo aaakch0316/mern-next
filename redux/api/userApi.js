@@ -14,3 +14,18 @@ export const joinApi = async (payload) => {
         return error
     }
 }
+
+export const loginApi = async (payload) => {
+    try{
+        const response = axios.post(
+            `${SERVER}/user/login`,
+            payload,
+            {headers}
+        )
+        const loginUser = JSON.stringify(response.data)
+        localStorage.setItem("loginUser", loginUser)
+        return response.data
+    }catch(error){
+        return error
+    }
+}

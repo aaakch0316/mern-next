@@ -49,7 +49,19 @@ const userSlice = createSlice({
         joinFailure: (state, {payload}) => {
             state.data = payload;
             state.loading = false;
-        }
+        },
+
+        loginRequest: (state, {payload}) => {
+            state.loading = true;
+        },
+        loginSuccess: (state, {payload}) => {
+            state.loading = true;
+            state.data = [...state.data, payload]
+        },
+        loginFailure: (state, {payload}) => {
+            state.loading = true;
+            state.data = payload;
+        },
     }
 })
 
