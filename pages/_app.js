@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { wrapper } from '../redux/store'
 import '../styles/globals.css'
 import Layout from './common/Layout/Layout'
 // import Layout from "./common/layout";
@@ -22,4 +23,4 @@ function App({ Component, pageProps }) {
   )
 }
 
-export default App
+export default wrapper.withRedux(App)

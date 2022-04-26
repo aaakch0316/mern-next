@@ -11,7 +11,8 @@ export default function Nav(){
         <li className={styles.li}> <Link href='/bmi'>BMI</Link> </li>
         <li className={styles.li}> <Link href='/todo/todo'>투두리스트</Link> </li>
         <li className={styles.li}> <Link href='/board/board'>게시글등록</Link> </li>
-        <li className={styles.li}> <Link href='/board/board-list'>게시글목록</Link> </li>
+        {/* <li className={styles.li}> <Link href='/board/board-list'>게시글목록</Link> </li> */}
+        <li className={styles.li}> <Link href='/board'>게시글목록</Link> </li>
         <li className={styles.li}> <Link href='/user/join'>회원가입</Link> </li>
         <li className={styles.li}> <Link href='/user/login'>로그인</Link> </li>
         <li className={styles.li}> <Link href='/user/user-list'>사용자목록</Link> </li>
