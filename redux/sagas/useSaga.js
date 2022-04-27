@@ -1,5 +1,5 @@
 import { put, takeLatest } from "redux-saga/effects"
-import { joinApi, loginApi } from "../api/userApi"
+import { joinApi, loginApi, logoutApi } from "../api/userApi"
 import { userActions } from "../reducers/userReducer"
 
 
@@ -29,4 +29,17 @@ function* login(login){
 
 export function* watchLogin(){
     yield takeLatest(userActions.loginRequest, login)
+}
+
+function* logout(){
+    try{
+        const response = yield logoutApi()
+        yield put(userActions.logoutSuccess(response))
+    }catch(error){
+        console.log(error)
+    }
+}
+
+export function* watchLogout(){
+    yield takeLatest(userActions.logoutRequest, logout)
 }

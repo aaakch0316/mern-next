@@ -29,3 +29,14 @@ export const loginApi = async (payload) => {
         return error
     }
 }
+
+export const logoutApi = async () => {
+    try{
+        const response = await axios.get(
+            `${SERVER}/user/logout`,
+            {headers}  
+        )  
+    }catch(error){
+        return error
+    }
+}

@@ -62,6 +62,15 @@ const userSlice = createSlice({
             state.loading = true;
             state.data = payload;
         },
+
+        logoutRequest: (state, {payload}) => {
+            state.loading = false;
+        },
+        logoutSuccess(state){
+            state.loading = false;
+            localStorage.clear();
+            window.location.href = '/'
+        }
     }
 })
 
