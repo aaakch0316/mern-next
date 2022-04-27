@@ -15,7 +15,7 @@ export default function  Login(){
     return <form onSubmit={
         e => {
             e.preventDefault()
-            // alert(' 진행 1: 로그인 클릭 ');
+            // alert(' 진행 1: 로그인 클릭 ', login);
             dispatch(userActions.loginRequest(login))
             setLogin({
                 userid:'', password:''

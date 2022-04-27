@@ -17,7 +17,7 @@ export const joinApi = async (payload) => {
 
 export const loginApi = async (payload) => {
     try{
-        const response = axios.post(
+        const response = await axios.post(
             `${SERVER}/user/login`,
             payload,
             {headers}
