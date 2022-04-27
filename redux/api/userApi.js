@@ -40,3 +40,14 @@ export const logoutApi = async () => {
         return error
     }
 }
+
+export const delUserApi = async () => {
+    try {
+        const response= await axios.delete(  // : AxiosResponse 는 정해진거다.
+            `${SERVER}/user/delUserApi`,
+            {headers} 
+        )    
+    }catch(err){
+        return err;
+    }
+}

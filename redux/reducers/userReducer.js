@@ -70,6 +70,18 @@ const userSlice = createSlice({
             state.loading = false;
             localStorage.clear();
             window.location.href = '/'
+        },
+
+        delUserRequest: (state, payload) {
+            state.loading = true
+        },
+        delUserSuccess(state, {payload}){
+            state.data = [...state.data, payload]
+            state.loading = false;
+        },
+        delUserFailure(state, {payload}){
+            state.data = payload
+            state.loading = false;
         }
     }
 })

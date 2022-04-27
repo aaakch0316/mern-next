@@ -43,3 +43,15 @@ function* logout(){
 export function* watchLogout(){
     yield takeLatest(userActions.logoutRequest, logout)
 }
+
+function* delUser(){
+    try{
+        const response = yield delUserApi()
+        yield put(userActions.delUserSuccess(response))
+    }catch(error){
+        console.log(error)
+    }
+}
+export function* watchDelUser(){
+    yield takeLatest(userActions.delUserRequest, delUser)
+}
