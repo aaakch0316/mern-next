@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'  // 경량화로 필요한걸로 쓴다.
-import tableStyles from '../common/styles/table.module.css' // css는 이걸로 퉁치게 만들어놨다.
+import tableStyles from './styles/table.module.css' // css는 이걸로 퉁치게 만들어놨다.
 
 export default function Profile(){
     const [profile, setProfile] = useState({})
