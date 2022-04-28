@@ -72,7 +72,7 @@ const userSlice = createSlice({
             window.location.href = '/'
         },
 
-        delUserRequest: (state, payload) {
+        delUserRequest: (state, payload) => {
             state.loading = true
         },
         delUserSuccess(state, {payload}){
