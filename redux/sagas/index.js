@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects'
-import { watchAddBoard, watchDelBoard } from './boardSaga.js'
+import { watchAddBoard, watchDelBoard, watchUpdateBoard } from './boardSaga.js'
 import { watchJoin, watchLogin, watchLogout, watchDelUser } from './useSaga.js'
 
 export default function* rootSaga() {
@@ -8,5 +8,7 @@ export default function* rootSaga() {
         watchLogout(), 
         watchDelUser(), 
         watchAddBoard(), 
-        watchDelBoard()])
+        watchDelBoard(),
+        watchUpdateBoard()
+    ])
 }

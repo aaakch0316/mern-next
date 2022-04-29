@@ -18,7 +18,18 @@ export const addBoardApi = async (payload) => {
 export const delBoardApi = async (payload) => {
     try {
         const response= await axios.post( 
-            `${SERVER}/board/delUserApi`, payload,
+            `${SERVER}/board/delete`, payload,
+            {headers} 
+        )    
+    }catch(err){
+        return err;
+    }
+}
+
+export const updateBoardApi = async (payload) => {
+    try {
+        const response= await axios.post( 
+            `${SERVER}/board/update`, payload,
             {headers} 
         )    
     }catch(err){

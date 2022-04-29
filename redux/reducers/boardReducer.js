@@ -22,6 +22,7 @@ const boardSlice = createSlice({
             state.data = payload;
             state.loading = false;
         },
+
         delBoardRequest: (state, payload) => {
             state.loading = true
         },
@@ -30,6 +31,18 @@ const boardSlice = createSlice({
             state.loading = false;
         },
         delBoardFailure(state, {payload}){
+            state.data = payload
+            state.loading = false;
+        },
+
+        updateBoardRequest: (state, payload) => {
+            state.loading = true
+        },
+        updateBoardSuccess(state, {payload}){
+            state.data = [...state.data, payload]
+            state.loading = false;
+        },
+        updateBoardFailure(state, {payload}){
             state.data = payload
             state.loading = false;
         }

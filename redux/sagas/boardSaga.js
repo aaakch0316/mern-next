@@ -4,9 +4,9 @@ import { boardActions } from "../reducers/boardReducer"
 
 
 
-function* addBoard(user){
+function* addBoard(board){
     try{
-        const response = yield addBoardApi(user.payload)
+        const response = yield addBoardApi(board.payload)
         yield put(boardActions.addBoardSuccess(response))
     }catch(error){
         yield put(boardActions.addBoardFailure(error))
@@ -17,10 +17,10 @@ export function* watchAddBoard(){
     yield takeLatest(boardActions.addBoardRequest, addBoard)
 }
 
-function* delBoard(user){
+function* delBoard(board){
     try{
-        // console.log('saga 진입', user)
-        const response = yield delBoardApi(user.payload)
+        // console.log('saga 진입', board)
+        const response = yield delBoardApi(board.payload)
         yield put(boardActions.delBoardSuccess(response))
     }catch(error){
         yield put(boardActions.delBoardFailure(error))
@@ -29,4 +29,18 @@ function* delBoard(user){
 
 export function* watchDelBoard(){
     yield takeLatest(boardActions.delBoardRequest, delBoard)
+}
+
+function* updateBoard(board){
+    try{
+        // console.log('saga 진입', board)
+        const response = yield updateBoardApi(board.payload)
+        yield put(boardActions.updateBoardSuccess(response))
+    }catch(error){
+        yield put(boardActions.updateBoardFailure(error))
+    }
+}
+
+export function* watchUpdateBoard(){
+    yield takeLatest(boardActions.updateBoardRequest, updateBoard)
 }
