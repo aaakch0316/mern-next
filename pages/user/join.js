@@ -1,12 +1,15 @@
 import React,{useState} from 'react'
 // import { useDispatch } from 'react-redux';
-// import { userActions } from '../../redux/reducers/userReducer.ts';
+import { useDispatch } from 'react-redux';        // react에서 redux로 페이로드를 넘겨주는 Hook함수.
+
+import { userActions } from '../../redux/reducers/userReducer.js';
 import tableStyles from './styles/table.module.css'
 export default function  Join(){
     const [user, setUser] =useState({
         userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
     })
     // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const handleChange = e =>{
         e.preventDefault()
         const{name, value} = e.target;
@@ -19,6 +22,7 @@ export default function  Join(){
         e => {
             e.preventDefault()
             // dispatch(userActions.joinRequest(user))
+            dispatch(userActions.joinRequest(user))
             setUser({
                 userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
             })

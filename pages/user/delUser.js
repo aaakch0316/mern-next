@@ -1,41 +1,44 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { userActions } from '../../redux/reducers/userReducer.js';
+import { userActions } from '../../redux/reducers/userReducer.ts';
 import tableStyles from './styles/table.module.css'
-export default function  Login(){
-    const [login, setLogin] =useState({
-        userid:'', password:''
+export default function  DelUser(){
+    const [delUser, setDelUser] = useState({
+         // id는 내장되어 있다하고 비번만 받자
     })
+
+    useEffect(() => {
+        const loginUser = localStorage.getItem('loginUser')
+        const user = JSON.parse(loginUser)
+        setDelUser(user)
+    }, [])
+
     const dispatch = useDispatch()
     const handleChange = e=>{
         e.preventDefault()
-        const{name, value} = e.target;
-        setLogin({...login,[name]: value})
+        const{name, value} = e.target; 
+        setDelUser({userid: delUser.userid , password: value})  // 값이 하나라 스프레드 쓸 필요 없다.
     }
     return <form onSubmit={
         e => {
             e.preventDefault()
-            // alert(' 진행 1: 로그인 클릭 ', login);
-            dispatch(userActions.loginRequest(login))
-            setLogin({
-                userid:'', password:''
-            })
+            dispatch(userActions.delUserRequest(delUser))
         }
     }
     >
         <table className={tableStyles.table}>
             <thead>
                 <tr>
-                    <th colSpan={2}><h1>로그인</h1></th>
+                    <th colSpan={2}><h1>회원탈퇴</h1></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><b>사용자ID</b></td>
-                    <td><input type="text" name='userid' onChange={handleChange} /></td>
+                    <td><input type="text" name='userid' value={delUser.userid} /></td>
                 </tr>
                 <tr>
-                    <td><b>비밀번호</b></td>
+                    <td><b>비밀번호 확인</b></td>
                     <td><input type="text" name='password' onChange={handleChange}/></td>
                 </tr>
                 <tr>
