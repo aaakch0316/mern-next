@@ -14,3 +14,14 @@ export const addBoardApi = async (payload) => {
         return error
     }
 }
+
+export const delBoardApi = async (payload) => {
+    try {
+        const response= await axios.post( 
+            `${SERVER}/board/delUserApi`, payload,
+            {headers} 
+        )    
+    }catch(err){
+        return err;
+    }
+}

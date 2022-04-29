@@ -22,9 +22,20 @@ const boardSlice = createSlice({
             state.data = payload;
             state.loading = false;
         },
+        delBoardRequest: (state, payload) => {
+            state.loading = true
+        },
+        delBoardSuccess(state, {payload}){
+            state.data = [...state.data, payload]
+            state.loading = false;
+        },
+        delBoardFailure(state, {payload}){
+            state.data = payload
+            state.loading = false;
+        }
     }
 })
 
 const { reducer, actions } = boardSlice;
-export const userActions = actions;
+export const boardActions = actions;
 export default reducer;

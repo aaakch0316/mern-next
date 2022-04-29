@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import tableStyles from './styles/table.module.css'
 import { useDispatch } from 'react-redux'
-import { userActions } from '../../redux/reducers/boardReducer.js'
+import { boardActions } from '../../redux/reducers/boardReducer.js'
 export default function Board(){
     const dispatch = useDispatch()
     const [inputs, setInputs] = useState({})
@@ -18,7 +18,7 @@ export default function Board(){
         e.preventDefault()
         
         if(Object.keys(inputs).length){
-            dispatch(userActions.addBoardRequest(inputs))
+            dispatch(boardActions.addBoardRequest(inputs))
             setInputs({})
             // setInputs({title: '', name: '', teamId: '', subject: ''})
         }  

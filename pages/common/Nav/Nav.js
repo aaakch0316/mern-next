@@ -34,8 +34,8 @@ export default function Nav(){
   const [userUrls, setUserUrls] = useState([])
   const [userSubTitle, setUserSubTitle] = useState([])
 
-  const basicUrls = ["/counter","/calc","/bmi"]
-  const basicSubTitle = ["카운터","계산기","BMI"]
+  const basicUrls = ["/counter","/calc","/bmi", "/board/writeArticle", "/board/getArticles"]
+  const basicSubTitle = ["카운터","계산기","BMI", "add 게시판", "게시글"]
 
 
   useEffect(() => {
