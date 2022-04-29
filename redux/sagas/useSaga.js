@@ -55,3 +55,4 @@ function* delUser(){
 export function* watchDelUser(){
     yield takeLatest(userActions.delUserRequest, delUser)
 }
+
