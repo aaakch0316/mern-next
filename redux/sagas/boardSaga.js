@@ -1,6 +1,7 @@
 import { put, takeLatest } from "redux-saga/effects"
-import { addBoardApi, delBoardApi } from "../api/boardApi.js"
+import { addBoardApi, delBoardApi, updateBoardApi } from "../api/boardApi.js"
 import { boardActions } from "../reducers/boardReducer"
+import Router from 'next/router';
 
 
 
@@ -8,6 +9,7 @@ function* addBoard(board){
     try{
         const response = yield addBoardApi(board.payload)
         yield put(boardActions.addBoardSuccess(response))
+        Router.push('/board/getArticles');
     }catch(error){
         yield put(boardActions.addBoardFailure(error))
     }
@@ -36,6 +38,7 @@ function* updateBoard(board){
         // console.log('saga 진입', board)
         const response = yield updateBoardApi(board.payload)
         yield put(boardActions.updateBoardSuccess(response))
+        Router.push('/board/getArticles');
     }catch(error){
         yield put(boardActions.updateBoardFailure(error))
     }
