@@ -4,8 +4,11 @@ import {useEffect, useState} from 'react';
 import tableStyles from './styles/table.module.css'
 import { useDispatch } from 'react-redux';
 import { boardActions } from '../../redux/reducers/boardReducer.js'
+import { useRouter } from 'next/router'
+
 
 export default function GetArticles() {
+    const router = useRouter()
     const dispatch = useDispatch()
 
     const columns = [
@@ -13,7 +16,8 @@ export default function GetArticles() {
         "이름",
         "팀이름",
         "주제",
-        "삭제"
+        "삭제",
+        "수정"
     ];
     const [data, setData] = useState([])
 
@@ -32,13 +36,21 @@ export default function GetArticles() {
             setData(res.data)
         }).catch(err => {alert('ERROR')})
         // dispatch(boardActions.addBoardRequest(inputs))
-
     }
+    const handleUpdate = (board, e) => {
+        e.preventDefault()
+        console.log(board)
+        router.push({
+            pathname: '/board/updateArticle',
+            query: { data: board}
+        })
+    }
+
 
     return (
         <> < table className = {tableStyles.table} > <thead>
             <tr>
-                <th colSpan={5}>
+                <th colSpan={6}>
                     <h1>게시판</h1>
                 </th>
             </tr>
@@ -63,6 +75,19 @@ export default function GetArticles() {
                     <td>{board.teamId}</td>
                     <td>{board.subject}</td>
                     <td><button onClick={(e)=>handledelete(board._id, e)}>삭제</button></td>
+                    <td><button onClick={()=>{
+                            router.push({
+                                pathname: '/board/[id]',
+                                query: { 
+                                    id: board._id,
+                                    // id: 1,
+                                    title: board.title,
+                                    name: board.name,
+                                    teamId: board.teamId,
+                                    subject: board.subject
+                                },
+                            })
+                    }}>수정</button></td>
                 </tr>)
             })  }
 
